@@ -16,16 +16,16 @@ getCpuId = function () {
 }
 
 
-async function get() {
-    try{
-        let result = await getCpuId();
-        console.log(result);
-    } 
-        catch (error) {
-            console.error(error);
-          }
-};
-get();
+// async function get() {
+//     try{
+//         let result = await getCpuId();
+//         console.log(result);
+//     } 
+//         catch (error) {
+//             console.error(error);
+//           }
+// };
+// get();
 
 
 module.exports = getCpuId;
