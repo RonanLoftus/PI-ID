@@ -1,7 +1,7 @@
 // Returns the unique ID of the PI CPU
 const { exec } = require("child_process");
 
-getCpuId = function () {
+async function getCpuId() {
     let cmd = 'cat /proc/cpuinfo | grep Serial';
 
     return new Promise((resolve, reject) => {
@@ -15,17 +15,17 @@ getCpuId = function () {
     });
 }
 
+// Usage:
 
 // async function get() {
 //     try{
-//         let result = await getCpuId();
-//         console.log(result);
+//         let result = await this.getCpuId();
+//         return(result);
 //     } 
 //         catch (error) {
 //             console.error(error);
+//             return(error);
 //           }
 // };
-// get();
 
-
-module.exports = getCpuId;
+module.exports = { getCpuId } ;
