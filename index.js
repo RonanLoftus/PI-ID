@@ -1,8 +1,10 @@
-// Returns the unique ID of the PI CPU
+// Returns the unique ID of the PI or MAC CPU
 const { exec } = require("child_process");
+const os = require('os');
 
 async function getCpuId() {
     let cmd = 'cat /proc/cpuinfo | grep Serial';
+    if (os.platform() == 'darwin') cmd = "system_profiler SPHardwareDataType | grep Serial";
 
     return new Promise((resolve, reject) => {
         exec(cmd, (error, stdout, stderr) => {
@@ -16,7 +18,6 @@ async function getCpuId() {
 }
 
 // Usage:
-
 // async function get() {
 //     try{
 //         let result = await this.getCpuId();
